@@ -1,0 +1,643 @@
+{
+    "id": "com.rdk.cujo-agent",
+    "type": "application/vnd.rdk-app.dac.native",
+    "version": "1.0.0",
+    "description": "cujo-agent",
+    "priority": "optional",
+    "graphics": false,
+    "network": {
+        "type": "open"
+    },
+    "storage": {},
+    "resources": {
+        "ram": "128M"
+    },
+    "ipc": {
+        "enable": true
+    },
+    "capabilities": {
+        "add": ["CAP_NET_ADMIN"]
+    },
+    "features": [],
+    "mounts": [
+        {
+            "source": "/rdklogs/logs/Consolelog.txt.0",
+            "destination": "/rdklogs/logs/Consolelog.txt.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "rw",
+                "X-mount.mkdir"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/etc/ssl/certs/ca-certificates.crt",
+            "destination": "/etc/ssl/certs/ca-certificates.crt",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/nvram/certs/",
+            "destination": "/nvram/certs/",
+            "options": [
+                "rbind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "tmpfs",
+            "destination": "/tmp",
+            "options": [
+                "noexec",
+                "nosuid",
+                "nodev",
+                "size=65536k",
+                "nr_inodes=8k"
+            ],
+            "type": "tmpfs"
+        },
+        {
+            "source": "/var/run/openvswitch/",
+            "destination": "/var/run/openvswitch/",
+            "options": [
+                "rbind",
+                "nosuid",
+                "noexec",
+                "nodev",
+                "rw"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/var/run/dbus/system_bus_socket",
+            "destination": "/var/run/dbus/system_bus_socket",
+            "options": [
+                "bind",
+                "nosuid",
+                "rw",
+                "nodev"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/etc/device.properties",
+            "destination": "/etc/device.properties",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/lib/rdk/getpartnerid.sh",
+            "destination": "/lib/rdk/getpartnerid.sh",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/lib/rdk/t2Shared_api.sh",
+            "destination": "/lib/rdk/t2Shared_api.sh",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/tmp/.cujo-agent-rules",
+            "destination": "/tmp/.cujo-agent-rules",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "rw"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/tmp/.cujo-agent-rules_v6",
+            "destination": "/tmp/.cujo-agent-rules_v6",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "rw"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/tmp/advsec_config_params",
+            "destination": "/tmp/advsec_config_params",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "rw"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/tmp/ccsp_msg.cfg",
+            "destination": "/tmp/ccsp_msg.cfg",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "rw"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/tmp/rtrouted",
+            "destination": "/tmp/rtrouted",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "rw"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/tmp/syseventd_connection",
+            "destination": "/tmp/syseventd_connection",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "rw"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/bin/dmcli",
+            "destination": "/usr/bin/dmcli",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/bin/psmcli",
+            "destination": "/usr/bin/psmcli",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/bin/rbuscli",
+            "destination": "/usr/bin/rbuscli",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/bin/syscfg_rbus",
+            "destination": "/usr/bin/syscfg",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/bin/sysevent",
+            "destination": "/usr/bin/sysevent",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libbreakpadwrapper.so.0",
+            "destination": "/usr/lib/libbreakpadwrapper.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libccsp_common.so.0",
+            "destination": "/usr/lib/libccsp_common.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libcjson.so.1",
+            "destination": "/usr/lib/libcjson.so.1",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libdbus-1.so.3",
+            "destination": "/usr/lib/libdbus-1.so.3",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libfactory_info.so.0",
+            "destination": "/usr/lib/libfactory_info.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libgwprovappabs.so.0",
+            "destination": "/usr/lib/libgwprovappabs.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libhal_platform.so.0",
+            "destination": "/usr/lib/libhal_platform.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libhal_util.so.0",
+            "destination": "/usr/lib/libhal_util.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libitc_rpc.so",
+            "destination": "/usr/lib/libitc_rpc.so",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libjsoncpp.so.25",
+            "destination": "/usr/lib/libjsoncpp.so.25",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/liblattice_rpctlv.so",
+            "destination": "/usr/lib/liblattice_rpctlv.so",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/liblattice.so",
+            "destination": "/usr/lib/liblattice.so",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/liblinenoise.so.1.0",
+            "destination": "/usr/lib/liblinenoise.so.1.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/liblog4c.so.3",
+            "destination": "/usr/lib/liblog4c.so.3",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libmocactl.so",
+            "destination": "/usr/lib/libmocactl.so",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libmsgpackc.so.2",
+            "destination": "/usr/lib/libmsgpackc.so.2",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libnanomsg.so.5",
+            "destination": "/usr/lib/libnanomsg.so.5",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libnetsnmp.so.35",
+            "destination": "/usr/lib/libnetsnmp.so.35",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libprivilege.so.0",
+            "destination": "/usr/lib/libprivilege.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/librbus.so.0",
+            "destination": "/usr/lib/librbus.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/librbuscore.so.0",
+            "destination": "/usr/lib/librbuscore.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/librdkloggers.so.0",
+            "destination": "/usr/lib/librdkloggers.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/librtMessage.so.0",
+            "destination": "/usr/lib/librtMessage.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libsafec.so.3",
+            "destination": "/usr/lib/libsafec.so.3",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libsecure_wrapper.so.0",
+            "destination": "/usr/lib/libsecure_wrapper.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libstdc++.so.6",
+            "destination": "/usr/lib/libstdc++.so.6",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libsyscfg.so.0",
+            "destination": "/usr/lib/libsyscfg.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libsysevent.so.0",
+            "destination": "/usr/lib/libsysevent.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/lib/libsystemd.so.0",
+            "destination": "/lib/libsystemd.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libt2utils.so.0",
+            "destination": "/usr/lib/libt2utils.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libtelemetry_msgsender.so.0",
+            "destination": "/usr/lib/libtelemetry_msgsender.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libthrottle.so",
+            "destination": "/usr/lib/libthrottle.so",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libtirpc.so.3",
+            "destination": "/usr/lib/libtirpc.so.3",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libtrower-base64.so.1.0.0",
+            "destination": "/usr/lib/libtrower-base64.so.1.0.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libulog.so.0",
+            "destination": "/usr/lib/libulog.so.0",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
+            "source": "/usr/lib/libzstd.so.1",
+            "destination": "/usr/lib/libzstd.so.1",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        }
+    ]
+}

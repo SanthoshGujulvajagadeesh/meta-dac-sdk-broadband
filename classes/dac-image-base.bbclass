@@ -11,7 +11,7 @@ PREFERRED_PROVIDER_virtual/kernel = "linux-dummy"
 IMAGE_INSTALL = " "
 IMAGE_INSTALL_append = " glibc"
 IMAGE_INSTALL_append = " ldconfig"
-IMAGE_INSTALL_append = " dash"
+IMAGE_INSTALL_append = " busybox"
 
 # fix for update_gio_module_cache and update_font_cache error on do_rootfs
 DEPENDS += "${@bb.utils.contains('BUNDLE_GENERATE', '1', 'qemuwrapper-cross', '', d)}"
