@@ -145,17 +145,6 @@
             "type": "bind"
         },
         {
-            "source": "/tmp/advsec_config_params",
-            "destination": "/tmp/advsec_config_params",
-            "options": [
-                "bind",
-                "nosuid",
-                "nodev",
-                "rw"
-            ],
-            "type": "bind"
-        },
-        {
             "source": "/tmp/ccsp_msg.cfg",
             "destination": "/tmp/ccsp_msg.cfg",
             "options": [
@@ -222,7 +211,7 @@
             "type": "bind"
         },
         {
-            "source": "/usr/bin/syscfg_rbus",
+            "source": "/usr/bin/syscfg",
             "destination": "/usr/bin/syscfg",
             "options": [
                 "bind",
@@ -530,7 +519,7 @@
             "type": "bind"
         },
         {
-            "source": "/usr/lib/libsyscfg.so.0",
+            "source": "/usr/lib/libsyscfg_rbus.so.0",
             "destination": "/usr/lib/libsyscfg.so.0",
             "options": [
                 "bind",
