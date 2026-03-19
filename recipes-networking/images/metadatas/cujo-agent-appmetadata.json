@@ -244,6 +244,17 @@
             "type": "bind"
         },
         {
+            "source": "/usr/lib/libethanlog.so.3",
+            "destination": "/usr/lib/libethanlog.so.3",
+            "options": [
+                "bind",
+                "nosuid",
+                "nodev",
+                "ro"
+            ],
+            "type": "bind"
+        },
+        {
             "source": "/usr/lib/libccsp_common.so.0",
             "destination": "/usr/lib/libccsp_common.so.0",
             "options": [
